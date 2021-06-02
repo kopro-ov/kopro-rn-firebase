@@ -16,7 +16,7 @@ const Contents = styled.Text`
     font-size: 24px;
 `;
 
-const Task = ({ text }) => {
+export const Item = ({ text }) => {
     return (
         <Container>
             <Contents>{text}</Contents>
