@@ -13,6 +13,9 @@ target 'koproRnFirebase' do
     # Pods for testing
   end
 
+  # firebase
+  pod 'Firebase/Analytics'
+
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
