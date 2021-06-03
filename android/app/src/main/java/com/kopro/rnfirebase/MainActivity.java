@@ -1,4 +1,4 @@
-package com.koprornfirebase;
+package com.kopro.rnfirebase;
 
 import com.facebook.react.ReactActivity;
 

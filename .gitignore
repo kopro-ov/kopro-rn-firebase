@@ -24,6 +24,8 @@ DerivedData
 #ios
 ios/GoogleService-Info.plist
 
+#android
+android/app/google-services.json
 # Android/IntelliJ
 #
 build/

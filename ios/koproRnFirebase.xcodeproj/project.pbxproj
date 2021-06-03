@@ -715,7 +715,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kopro.koproRnFirebase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kopro.rnfirebase;
 				PRODUCT_NAME = koproRnFirebase;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -737,7 +737,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kopro.koproRnFirebase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kopro.rnfirebase;
 				PRODUCT_NAME = koproRnFirebase;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

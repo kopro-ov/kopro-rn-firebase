@@ -1,4 +1,4 @@
-package com.koprornfirebase;
+package com.kopro.rnfirebase;
 
 import android.app.Application;
 import android.content.Context;
