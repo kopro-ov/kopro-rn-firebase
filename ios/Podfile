@@ -3,6 +3,9 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
+# firebase
+pod 'Firebase/Analytics'
+
 target 'koproRnFirebase' do
   config = use_native_modules!
 
@@ -12,9 +15,6 @@ target 'koproRnFirebase' do
     inherit! :complete
     # Pods for testing
   end
-
-  # firebase
-  pod 'Firebase/Analytics'
 
   # Enables Flipper.
   #
