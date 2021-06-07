@@ -66,3 +66,7 @@ buck-out/
 
 #node
 firebase.json
+
+#lock
+package-lock.json
+yarn.lock
