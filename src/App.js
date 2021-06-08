@@ -1,7 +1,7 @@
-import React from 'react';
-import { Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { StatusBar, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
-import Item from './components/Item';
+import Navigation from './navigations'
 
 const Container = styled.View`
   flex: 1;
@@ -20,15 +20,8 @@ const List = styled.ScrollView`
 
   return (
      <>
-      <Container>
-        <List width={width}>
-          <Item text="Test1" />
-          <Item text="Test2" />
-          <Item text="Test3" />
-          <Item text="Test4" />
-          <Item text="Test5" />
-        </List>
-      </Container>
+      <StatusBar barStyle="dark-content" />
+      <Navigation />
      </>
   );
  }
