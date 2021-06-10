@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { images } from '../utils/images';
-import { Text, Button, Image } from 'react-native';
-import { Input } from '../components/Input';
+import { Text, Button } from 'react-native';
 import { useState } from 'react/cjs/react.development';
+import Image from '../components/Image';
+import Input from '../components/Input';
+import { images } from '../utils/images';
 
 const Container = styled.View`
     flex: 1;
@@ -15,13 +16,12 @@ const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    console.log(images.logo);
+    
     return (
         <Container>
-            <Image 
-                style={{width:'100%', height:'20%'}}
-                source={{uri: images.logo}} 
-            />
-            {/* <Input
+            <Image url={images.logo} imageStyle={{ borderRadius: 8 }} />
+            <Input
                 label="Email"
                 value={email}
                 onChangeText={text => setEmail(text)}
@@ -32,13 +32,11 @@ const Login = ({ navigation }) => {
             <Input
                 label="Password"
                 value={password}
-                onChangeText={text => setP(text)}
+                onChangeText={text => setPassword(text)}
                 onSubmitEditing={() =>{}}
                 placeholder="Password"
-                returnKeyType="next"
-            />         */}
-            <Text style={{ fontSize: 30 }}>Login Screen</Text>
-            <Button title="Signup" onPress={() => navigation.navigate('Signup')} />
+                returnKeyType="done"
+            />        
         </Container>
     );
 };

@@ -41,14 +41,14 @@ const Input = ({
             <StyledTextInput
                 isFocused={isFocused}
                 value={value}
-                onChnageText={onChnageText}
+                onChangeText={onChnageText}
                 onSubmitEditing={onSubmitEditing}
                 onFoucs={()=> setIsFocused(true)}
                 onBlur={()=>{
                     setIsFocused(false);
                     onBlur();
                 }}
-                placheolder={placheolder}
+                placeholder={placheolder}
                 secureTextEntry={isPassword}
                 returnKeyType={returnKeyType}
                 maxLength={maxLength}
@@ -65,16 +65,16 @@ Input.defaultProps = {
     onBlur: () => {},
 }
 
-Input.prototype = {
+Input.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    onChnageText: PropTypes.func.isRequired,
+    onChangeText: PropTypes.func.isRequired,
     onSubmitEditing: PropTypes.func.isRequired,
     onBlur: PropTypes.func,
-    placheolder: PropTypes.string,
+    placeholder: PropTypes.string,
     isPassword: PropTypes.bool,
     returnKeyType: PropTypes.oneOf(['done', 'next']),
-    maxLength: PropTypes.number
+    maxLength: PropTypes.number,
 }
 
 export default Input;
