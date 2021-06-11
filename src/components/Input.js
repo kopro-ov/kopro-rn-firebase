@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 
@@ -12,33 +12,34 @@ const Label = styled.Text`
     font-weight: 600;
     margin-bottom: 6px;
 `;
-const StyledTextInput = styled.TextInput.attrs({
-    placeholderTextColor: 'red'
-})`
-    background-color: '#000';
-    color: 'blue';
+const StyledTextInput = styled.TextInput`
+    margin: 10px;
     padding: 20px 10px;
     font-size: 16px;
-    border: 1px solid yellow;
+    border: 1px solid black;
     border-radius: 4px;
 `;
-const Input = ({
-    label,
-    value,
-    onChnageText,
-    onSubmitEditing,
-    onBlur,
-    placheolder,
-    isPassword,
-    returnKeyType,
-    maxLength
-}) => {
+const Input = forwardRef((    
+    {
+        label,
+        value,
+        onChnageText,
+        onSubmitEditing,
+        onBlur,
+        placheolder,
+        isPassword,
+        returnKeyType,
+        maxLength
+    },
+    ref
+) => {
     const [isFocused, setIsFocused] = useState(false);
 
     return (
         <Container>
             <Label isFocused={isFocused}>{label}</Label>
             <StyledTextInput
+                ref={ref}
                 isFocused={isFocused}
                 value={value}
                 onChangeText={onChnageText}
@@ -59,7 +60,7 @@ const Input = ({
             />
         </Container>
     );
-};
+});
 
 Input.defaultProps = {
     onBlur: () => {},
