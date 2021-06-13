@@ -23,7 +23,7 @@ const Input = forwardRef((
     {
         label,
         value,
-        onChnageText,
+        onChangeText,
         onSubmitEditing,
         onBlur,
         placheolder,
@@ -42,7 +42,7 @@ const Input = forwardRef((
                 ref={ref}
                 isFocused={isFocused}
                 value={value}
-                onChangeText={onChnageText}
+                onChangeText={onChangeText}
                 onSubmitEditing={onSubmitEditing}
                 onFoucs={()=> setIsFocused(true)}
                 onBlur={()=>{

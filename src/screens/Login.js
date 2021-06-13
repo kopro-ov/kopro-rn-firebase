@@ -17,10 +17,13 @@ const Login = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const passwordRef = useRef();
     
+    console.log(email);
+    console.log('윽?');
+
     return (
         <KeyboardAwareScrollView
             contentContainerStyle={{ flex: 1 }}
-            extraHeight={20}
+            extraScrollHeight={20}
         >
             <Container>
                 <Image url={images.logo} imageStyle={{ borderRadius: 8 }} />
