@@ -19,22 +19,23 @@ const StyledTextInput = styled.TextInput`
     border: 1px solid black;
     border-radius: 4px;
 `;
-const Input = forwardRef((    
+const Input = forwardRef((
     {
         label,
         value,
         onChangeText,
         onSubmitEditing,
         onBlur,
-        placheolder,
+        placeholder,
         isPassword,
         returnKeyType,
-        maxLength
+        maxLength,
     },
     ref
 ) => {
     const [isFocused, setIsFocused] = useState(false);
 
+    console.log(ref);
     return (
         <Container>
             <Label isFocused={isFocused}>{label}</Label>
@@ -49,14 +50,14 @@ const Input = forwardRef((
                     setIsFocused(false);
                     onBlur();
                 }}
-                placeholder={placheolder}
+                placeholder={placeholder}
                 secureTextEntry={isPassword}
                 returnKeyType={returnKeyType}
                 maxLength={maxLength}
                 autoCapitalize="none"
                 autoCorrect={false}
-                textContentType="none" //ios
-                underlineColorAndroid="transparent" //android 
+                textContentType="none" //ios only
+                underlineColorAndroid="transparent" //android only
             />
         </Container>
     );
@@ -76,6 +77,6 @@ Input.propTypes = {
     isPassword: PropTypes.bool,
     returnKeyType: PropTypes.oneOf(['done', 'next']),
     maxLength: PropTypes.number,
-}
+};
 
 export default Input;

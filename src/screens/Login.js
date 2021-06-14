@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components/native';
-import { Text, Button } from 'react-native';
 import Image from '../components/Image';
 import Input from '../components/Input';
 import { images } from '../utils/images';
@@ -17,8 +16,8 @@ const Login = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const passwordRef = useRef();
     
-    console.log(email);
-    console.log('윽?');
+    console.log(passwordRef);
+    console.log('??');
 
     return (
         <KeyboardAwareScrollView
@@ -43,6 +42,7 @@ const Login = ({ navigation }) => {
                     onSubmitEditing={() =>{}}
                     placeholder="Password"
                     returnKeyType="done"
+                    isPassword
                 />        
             </Container>
         </KeyboardAwareScrollView>
