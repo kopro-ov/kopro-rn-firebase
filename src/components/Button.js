@@ -18,12 +18,12 @@ const Title = styled.Text`
     line-height: 30px;
     font-size: 16px;
     color: ${({ isFiled }) =>
-        isFinite ? 'white' : TRANSPARENT};
+        isFiled ? 'white' : 'blue'};
 `;
 
 const Button = ({ containerStyle, title, onPress, isFiled }) => {
     return (
-        <Container style={containerStyle} onPress={onPress} isFiled={isFinite}>
+        <Container style={containerStyle} onPress={onPress} isFiled={isFiled}>
             <Title isFiled={isFiled}>{title}</Title>
         </Container>
     );
