@@ -22,7 +22,7 @@ const Title = styled.Text`
         isFiled ? 'white' : 'blue'};
 `;
 
-const Button = ({ containerStyle, title, onPress, isFiled }) => {
+const Button = ({ containerStyle, title, onPress, isFiled, disabled }) => {
     return (
         <Container 
             style={containerStyle} 

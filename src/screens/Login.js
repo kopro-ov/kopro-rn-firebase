@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components/native';
 import Image from '../components/Image';
 import Input from '../components/Input';
@@ -25,7 +25,12 @@ const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [disabled, setDisabled] = useState(true);
     const passwordRef = useRef();
+
+    useEffect(()=> {
+        setDisabled(!(email && password && !errorMessage))
+    }, [email, password, errorMessage])
     
     // console.log(passwordRef);
     // console.log('??');
@@ -68,7 +73,10 @@ const Login = ({ navigation }) => {
                     isPassword
                 />        
                 <ErrorText>{errorMessage}</ErrorText>
-                <Button title="Login" onPress={_handleLoginButtonPress} />
+                <Button title="Login" 
+                    onPress={_handleLoginButtonPress} 
+                    disabled={disabled} 
+                />
                 <Button 
                     title="Sign up with email"
                     onPress={() => navigation.navigate('Signup')}
