@@ -11,6 +11,7 @@ const Container = styled.TouchableOpacity`
     border-radius: 4px;
     width: 100%;
     padding: 10px;
+    opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;
 
 const Title = styled.Text`
@@ -23,7 +24,12 @@ const Title = styled.Text`
 
 const Button = ({ containerStyle, title, onPress, isFiled }) => {
     return (
-        <Container style={containerStyle} onPress={onPress} isFiled={isFiled}>
+        <Container 
+            style={containerStyle} 
+            onPress={onPress} 
+            isFiled={isFiled}
+            disabled={disabled}
+        >
             <Title isFiled={isFiled}>{title}</Title>
         </Container>
     );
@@ -38,6 +44,7 @@ Button.propTypes = {
     title: PropTypes.string,
     onPress: PropTypes.func.isRequired,
     isFiled: PropTypes.bool,
+    disabled: PropTypes.bool
 }
 
 export default Button;
