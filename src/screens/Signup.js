@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import styled from 'styled-components/native';
-import { Image } from '../components/Image';
-import { Button } from '../components/Button';
-import { Input } from '../components/Input';
-import validateEmail from '../utils/common'
+import {Image} from '../components/Image';
+import {Button} from '../components/Button';
+import {Input} from '../components/Input';
+import validateEmail, {removeWhitespace} from '../utils/common';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-
 
 const Container = styled.View`
   flex: 1;
@@ -22,9 +21,7 @@ const ErrorText = styled.Text`
   line-height: 20px;
 `;
 
-
 const Signup = () => {
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
@@ -45,22 +42,72 @@ const Signup = () => {
     } else if (password.length < 6) {
       _errorMessage = 'Passwords need to match';
     }
-    
-    setErrorMessage(_errorMessage)
-
+    setErrorMessage(_errorMessage);
   }, [name, email, password, passwordConfirm, errorMessage]);
-
 
   useEffect(() => {
     setDisabled(
-      !(name && email &&, password && passwordConfirm && !errorMessage)
+      !(name && email && password && passwordConfirm && !errorMessage),
     );
-  }, [name, email, password, passwordConfirm, errorMessage]); 
+  }, [name, email, password, passwordConfirm, errorMessage]);
+
+  const _handleSignupButtonPress = () => {};
 
   return (
-    <Container>
-      
-    </Container>
+    <KeyboardAwareScrollView
+      contentContainerStyle={{flex: 1}}
+      extraScrollHeight={20}>
+      <Container>
+        <Image rounded />
+        <Input
+          label="Name"
+          value={name}
+          onChangeText={(text) => setName(text)}
+          onSubmitEditing={() => {
+            setName(name.trim());
+            emailRef.current.focus();
+          }}
+          onBlur={() => setName(name.trim())}
+          placeholder="Name"
+          returnKeyType="next"
+        />
+        <Input
+          ref={emailRef}
+          label="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          onSubmitEditing={() => passwordRef.current.focus()}
+          placeholder="Email"
+          returnKeyType="next"
+        />
+        <Input
+          ref={passwordRef}
+          label="Password"
+          value={password}
+          onChangeText={(text) => setPassword(removeWhitespace(text))}
+          onSubmitEditing={() => passwordConfirmRef.current.focus()}
+          placeholder="Password"
+          returnKeyType="done"
+          isPassword
+        />
+        <Input
+          ref={passwordConfirmRef}
+          label="Password Confirm"
+          value={passwordConfirm}
+          onChangeText={(text) => setPasswordConfirm(removeWhitespace(text))}
+          onSubmitEditing={_handleSignupButtonPress}
+          placeholder="Password"
+          returnKeyType="done"
+          isPassword
+        />
+        <ErrorText>{errorMessage}</ErrorText>
+        <Button
+          title="Signup"
+          onPress={_handleSignupButtonPress}
+          disabled={disabled}
+        />
+      </Container>
+    </KeyboardAwareScrollView>
   );
 };
 
