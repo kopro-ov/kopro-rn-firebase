@@ -1,9 +1,9 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styled from 'styled-components/native';
-import {Image} from '../components/Image';
-import {Button} from '../components/Button';
-import {Input} from '../components/Input';
-import validateEmail, {removeWhitespace} from '../utils/common';
+import Image from '../components/Image';
+import Input from '../components/Input';
+import Button from '../components/Button';
+import {validateEmail, removeWhitespace} from '../utils/common';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const Container = styled.View`
@@ -24,10 +24,10 @@ const ErrorText = styled.Text`
 const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
-  const [disabled, setDisabled] = useState(true)
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [disabled, setDisabled] = useState(true);
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -41,9 +41,13 @@ const Signup = () => {
       _errorMessage = 'Plesage verify your email';
     } else if (password.length < 6) {
       _errorMessage = 'Passwords need to match';
+    } else if (password !== passwordConfirm) {
+      _errorMessage = 'Password need to match';
+    } else {
+      _errorMessage = '';
     }
     setErrorMessage(_errorMessage);
-  }, [name, email, password, passwordConfirm, errorMessage]);
+  }, [name, email, password, passwordConfirm]);
 
   useEffect(() => {
     setDisabled(
@@ -100,7 +104,8 @@ const Signup = () => {
           returnKeyType="done"
           isPassword
         />
-        <ErrorText>{errorMessage}</ErrorText>
+        
+         <ErrorText>{errorMessage}</ErrorText>
         <Button
           title="Signup"
           onPress={_handleSignupButtonPress}

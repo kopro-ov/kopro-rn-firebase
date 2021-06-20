@@ -10,6 +10,7 @@ const StyledImage = styled.Image`
   width: 100px;
   height: 100px;
   border-radius: ${({rounded}) => (rounded ? 50 : 0)}px;
+  background-color: #d5d5d5;
 `;
 
 const Image = ({url, imageStyle, rounded}) => {
