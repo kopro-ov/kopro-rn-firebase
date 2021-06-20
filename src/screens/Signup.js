@@ -29,24 +29,29 @@ const Signup = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [disabled, setDisabled] = useState(true);
 
+  const didMountRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
 
   useEffect(() => {
-    let _errorMessage = '';
-    if (!name) {
-      _errorMessage = 'Plesage enter your name';
-    } else if (!validateEmail(email)) {
-      _errorMessage = 'Plesage verify your email';
-    } else if (password.length < 6) {
-      _errorMessage = 'Passwords need to match';
-    } else if (password !== passwordConfirm) {
-      _errorMessage = 'Password need to match';
+    if (didMountRef.current) {
+      let _errorMessage = '';
+      if (!name) {
+        _errorMessage = 'Plesage enter your name';
+      } else if (!validateEmail(email)) {
+        _errorMessage = 'Plesage verify your email';
+      } else if (password.length < 6) {
+        _errorMessage = 'Passwords need to match';
+      } else if (password !== passwordConfirm) {
+        _errorMessage = 'Password need to match';
+      } else {
+        _errorMessage = '';
+      }
+      setErrorMessage(_errorMessage);
     } else {
-      _errorMessage = '';
+      didMountRef.current = true;
     }
-    setErrorMessage(_errorMessage);
   }, [name, email, password, passwordConfirm]);
 
   useEffect(() => {
