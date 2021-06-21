@@ -112,8 +112,7 @@ const Signup = () => {
           returnKeyType="done"
           isPassword
         />
-        
-         <ErrorText>{errorMessage}</ErrorText>
+        <ErrorText>{errorMessage}</ErrorText>
         <Button
           title="Signup"
           onPress={_handleSignupButtonPress}

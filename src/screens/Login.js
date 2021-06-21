@@ -1,9 +1,9 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styled from 'styled-components/native';
-import login from '../utils/firebase';
 import Image from '../components/Image';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import {login} from '../utils/firebase';
 import {images} from '../utils/images';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {validateEmail, removeWhitespace} from '../utils/common';
