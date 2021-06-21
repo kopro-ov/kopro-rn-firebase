@@ -36,7 +36,6 @@ const Input = forwardRef(
   ) => {
     const [isFocused, setIsFocused] = useState(false);
 
-    console.log(ref);
     return (
       <Container>
         <Label isFocused={isFocused}>{label}</Label>
