@@ -9,13 +9,13 @@ const Container = styled.View`
   width: 100%;
   height: 100%;
   justify-content: center;
-  background-color: 'black';
+  background-color: #000000;
 `;
 
 const Spinner = () => {
   return (
     <Container>
-      <ActivityIndicator size={'large'} color={'white'} />
+      <ActivityIndicator size={'large'} color={'#ffffff'} />
     </Container>
   );
 };
