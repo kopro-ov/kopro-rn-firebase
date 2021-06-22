@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {StatusBar, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Navigation from './navigations';
-import ProgressProvider from './contexts/Progress';
+import {ProgressProvider} from './contexts/Progress';
 
 const Container = styled.View`
   flex: 1;
