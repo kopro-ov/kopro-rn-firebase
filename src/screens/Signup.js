@@ -8,6 +8,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {images} from '../utils/images';
 import {signup} from '../utils/firebase';
 import {Alert} from 'react-native';
+import {UserContext} from '../contexts/User';
 import {ProgressContext} from '../contexts/Progress';
 
 const Container = styled.View`
@@ -26,6 +27,7 @@ const ErrorText = styled.Text`
 `;
 
 const Signup = () => {
+  const {dispatch} = useContext(UserContext);
   const {spinner} = useContext(ProgressContext);
   const [photoUrl, setPhotoUrl] = useState(images.photo);
 
@@ -71,8 +73,7 @@ const Signup = () => {
     try {
       spinner.start();
       const user = await signup({email, password});
-      console.log(user);
-      Alert.alert('Signup Success', user.email);
+      dispatch(user);
     } catch (e) {
       Alert.alert('Signup Error', e.message);
     } finally {

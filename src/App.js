@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {StatusBar, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Navigation from './navigations';
+import {UserProvider} from './contexts/User';
 import {ProgressProvider} from './contexts/Progress';
 
 const Container = styled.View`
@@ -20,10 +21,12 @@ export default function App() {
 
   return (
     <>
-      <ProgressProvider>
-        <StatusBar barStyle="dark-content" />
-        <Navigation />
-      </ProgressProvider>
+      <UserProvider>
+        <ProgressProvider>
+          <StatusBar barStyle="dark-content" />
+          <Navigation />
+        </ProgressProvider>
+      </UserProvider>
     </>
   );
 }
