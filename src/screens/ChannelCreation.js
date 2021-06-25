@@ -9,7 +9,6 @@ const Container = styled.View`
 `;
 
 const ChannelCreation = ({navigation}) => {
-  
   const {dispath} = useContext(UserContext);
 
   const _handleLogoutButtonPress = async () => {
@@ -18,7 +17,7 @@ const ChannelCreation = ({navigation}) => {
     } catch (e) {
       console.log('logout', e.message);
     } finally {
-      dispath([])
+      dispath([]);
     }
   };
 
