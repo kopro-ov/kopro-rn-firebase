@@ -64,6 +64,7 @@ const ChannelList = ({navigation}) => {
         keyExtractor={(item) => item.id.toString()}
         data={channels}
         renderItem={({item}) => <Item item={item} onPress={_handleItemPress} />}
+        windowSize={3}
       />
     </Container>
   );
