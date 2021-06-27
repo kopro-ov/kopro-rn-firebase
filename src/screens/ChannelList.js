@@ -39,19 +39,21 @@ for (let idx = 0; idx < 1000; idx++) {
   });
 }
 
-const Item = ({item: {id, title, description, createAt}, onPress}) => {
-  console.log(`Item: ${id}`);
+const Item = React.memo(
+  ({item: {id, title, description, createAt}, onPress}) => {
+    console.log(`Item: ${id}`);
 
-  return (
-    <ItemContainer onPress={() => onPress({id, title})}>
-      <ItemTextContainer>
-        <ItemTitle>{title}</ItemTitle>
-        <ItemDescription>{description}</ItemDescription>
-      </ItemTextContainer>
-      <ItemTime>{createAt}</ItemTime>
-    </ItemContainer>
-  );
-};
+    return (
+      <ItemContainer onPress={() => onPress({id, title})}>
+        <ItemTextContainer>
+          <ItemTitle>{title}</ItemTitle>
+          <ItemDescription>{description}</ItemDescription>
+        </ItemTextContainer>
+        <ItemTime>{createAt}</ItemTime>
+      </ItemContainer>
+    );
+  },
+);
 
 const ChannelList = ({navigation}) => {
   const _handleItemPress = (params) => {
