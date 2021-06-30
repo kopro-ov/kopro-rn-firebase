@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
-import DB from '../utils/firebase';
+import {DB, createMessage} from '../utils/firebase';
 import styled from 'styled-components/native';
-import {Text, FlatList} from 'react-native';
+import {Text, FlatList, Alert} from 'react-native';
 
 const Container = styled.View`
   flex: 1;
@@ -27,6 +27,15 @@ const Channel = ({navigation, route: {params}}) => {
   useLayoutEffect(() => {
     navigation.setOptions({headerTitle: params.title || 'Channel'});
   }, []);
+
+  const _handleMessageSend = async (messageList) => {
+    const newMessage = messageList[0];
+    try {
+      await createMessage({channelId: params.id, message: newMessage});
+    } catch (e) {
+      Alert.alert('Send Message Error', e.message);
+    }
+  };
 
   return (
     <Container>

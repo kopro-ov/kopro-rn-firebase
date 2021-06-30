@@ -21,6 +21,17 @@ export const createChannel = async ({title, description}) => {
   return id;
 };
 
+export const createMessage = async ({channelId, message}) => {
+  return await DB.collection('channels')
+    .doc(channelId)
+    .collection('messages')
+    .doc(message._id)
+    .set({
+      message,
+      createAt: Date.now(),
+    });
+};
+
 export const login = async ({email, password}) => {
   const {user} = await Auth.signInWithEmailAndPassword(email, password);
   return user;
