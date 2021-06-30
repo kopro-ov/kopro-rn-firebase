@@ -34,6 +34,7 @@ const Channel = ({navigation, route: {params}}) => {
         keyExtractor={(item) => item.id}
         data={messages}
         renderItem={({item}) => <Text style={{fontSize: 24}}>{item.text}</Text>}
+        inverted={true}
       />
     </Container>
   );
